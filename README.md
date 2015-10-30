@@ -31,3 +31,6 @@ git clone git@github.com:npu-tiger/recipe-web-service.git
 - use browser or curl to hit the endpoint:
 - http://localhost:8080/recipe/rest/api/users
 - http://localhost:8080/recipe/rest/api/users/1
+
+# reference
+http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html
