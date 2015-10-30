@@ -28,11 +28,19 @@ git clone git@github.com:npu-tiger/recipe-web-service.git
 - "[INFO] Started Jetty Server" should be seen for a successful launch
 
 ## test endpoints
-- use browser or curl to hit the endpoint:
-- GET: http://localhost:8080/recipe/rest/api/users
-- GET: http://localhost:8080/recipe/rest/api/users/1
-- POST: http://localhost:8080/recipe/rest/api/users
-  sample request payload for post: {"id":null,"username":"dummyuser1","password":"password123","email":"dummyuser1@recipe.com","nickname":"fun"}
+- use browser or curl to hit the endpoint: http://localhost:8080/recipe/rest/api
+- if you see "welcome to recipe!" then your web service is running fine
+
+# User Resource
+## GET - get all
+http://localhost:8080/recipe/rest/api/users
+
+## GET - get by id
+GET: http://localhost:8080/recipe/rest/api/users/1
+
+## POST: create user
+http://localhost:8080/recipe/rest/api/users
+sample request payload for post: {"id":null,"username":"dummyuser1","password":"password123","email":"dummyuser1@recipe.com","nickname":"fun"}
 
 # reference
 http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html
