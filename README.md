@@ -29,8 +29,10 @@ git clone git@github.com:npu-tiger/recipe-web-service.git
 
 ## test endpoints
 - use browser or curl to hit the endpoint:
-- http://localhost:8080/recipe/rest/api/users
-- http://localhost:8080/recipe/rest/api/users/1
+- GET: http://localhost:8080/recipe/rest/api/users
+- GET: http://localhost:8080/recipe/rest/api/users/1
+- POST: http://localhost:8080/recipe/rest/api/users
+  sample request payload for post: {"id":null,"username":"dummyuser1","password":"password123","email":"dummyuser1@recipe.com","nickname":"fun"}
 
 # reference
 http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html
