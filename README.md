@@ -5,9 +5,9 @@ RESTful web service for managing recipe
 ## git clone source code
 git clone git@github.com:npu-tiger/recipe-web-service.git
 
-## download and setup maven 2.2.1
-- download and unzip http://archive.apache.org/dist/maven/binaries/apache-maven-2.2.1-bin.zip
-- set MAVEN_HOME to the path where apache-maven-2.2.1/bin located
+## download and setup maven 3.0.4
+- download and unzip http://archive.apache.org/dist/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.zip
+- set MAVEN_HOME to the path where apache-maven-3.0.4/bin located
 - make sure JAVA_HOME is also set
 - set both MAVEN_HOME and JAVA_HOME to PATH
 - mvn -v to check if maven setup is successful
@@ -22,6 +22,8 @@ git clone git@github.com:npu-tiger/recipe-web-service.git
 - download and install mysql workbench
 - run database schema create script https://github.com/npu-tiger/db-schema/blob/master/recipe_schema_creation.sql
 - run user data seed script https://github.com/npu-tiger/db-schema/blob/master/user_data_seed.sql
+- run recipe data seed script https://github.com/npu-tiger/db-schema/blob/master/recipe_data_seed.sql
+- run rank data seed script https://github.com/npu-tiger/db-schema/blob/master/rank_data_seed.sql
 
 ## start jetty server
 - at the source code root directory where pom.xml presents, run "mvn jetty:run"
