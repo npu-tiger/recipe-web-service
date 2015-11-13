@@ -8,15 +8,13 @@
  * written permission is obtained from Metabiota Incorporated.
  * ***********************************************************************
  * <p/>
- * Created by WLao on 10/29/15.
+ * Created by WLao on 11/11/15.
  */
-package com.recipe.rest.dao.user;
+package com.recipe.rest.dao.rank;
 
 import com.googlecode.genericdao.dao.jpa.GenericDAOImpl;
 import com.googlecode.genericdao.search.jpa.JPASearchProcessor;
-import com.recipe.rest.dto.User;
-import com.recipe.rest.entity.UserDO;
-import org.apache.commons.lang3.StringUtils;
+import com.recipe.rest.entity.RankDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -24,30 +22,29 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.List;
 
 @Repository
-public class UserDAOImp extends GenericDAOImpl<UserDO, Integer> implements UserDAO {
+public class RankDAOImpl extends GenericDAOImpl<RankDO, Integer> implements RankDAO {
 
     @Override
-    @PersistenceContext(unitName="recipeRestPersistence")
-    @Qualifier(value="entityManagerFactory")
+    @PersistenceContext(unitName = "recipeRestPersistence")
+    @Qualifier(value = "entityManagerFactory")
     public void setEntityManager(EntityManager entityManager) {
         super.setEntityManager(entityManager);
     }
 
     @Override
     @Autowired
-    @Qualifier(value="searchProcessor")
+    @Qualifier(value = "searchProcessor")
     public void setSearchProcessor(JPASearchProcessor searchProcessor) {
         super.setSearchProcessor(searchProcessor);
     }
 
     @Override
-    public List<UserDO> findByUsername(String username) {
-        if (StringUtils.isBlank(username)) return null;
-        Query query = em().createQuery("SELECT user FROM UserDO user where user.username=:username");
-        query.setParameter("username", username);
-        return query.getResultList();
+    public Long findTotalRanksByRecipeId(Integer recipeId) {
+        if (recipeId == null || recipeId < 0) return null;
+        Query query = em().createQuery("SELECT count(*) FROM RankDO rank where rank.recipeId=:recipeId and rank.status = 1");
+        query.setParameter("recipeId", recipeId);
+        return (Long) query.getSingleResult();
     }
 }

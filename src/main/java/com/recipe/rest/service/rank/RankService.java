@@ -8,20 +8,22 @@
  * written permission is obtained from Metabiota Incorporated.
  * ***********************************************************************
  * <p/>
- * Created by WLao on 10/29/15.
+ * Created by WLao on 11/11/15.
  */
-package com.recipe.rest.dao.user;
+package com.recipe.rest.service.rank;
 
-import com.googlecode.genericdao.dao.jpa.GenericDAO;
-import com.recipe.rest.dto.User;
-import com.recipe.rest.entity.UserDO;
-import org.springframework.stereotype.Repository;
+import com.recipe.rest.dto.Rank;
 
 import java.util.List;
+import java.util.Map;
 
-@Repository
-public interface UserDAO extends GenericDAO<UserDO, Integer> {
+public interface RankService {
 
-    public List<UserDO> findByUsername(String username);
+    public Rank findById(Integer id) throws Exception;
 
+    public Map<String, List<Rank>> findAll() throws Exception;
+
+    public Rank add(Rank rankDTO) throws Exception;
+
+    public void update(Integer id, Rank rankDTO) throws Exception;
 }

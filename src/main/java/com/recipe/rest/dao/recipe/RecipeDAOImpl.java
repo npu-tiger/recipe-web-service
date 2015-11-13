@@ -8,26 +8,22 @@
  * written permission is obtained from Metabiota Incorporated.
  * ***********************************************************************
  * <p/>
- * Created by WLao on 10/29/15.
+ * Created by WLao on 11/11/15.
  */
-package com.recipe.rest.dao.user;
+package com.recipe.rest.dao.recipe;
 
 import com.googlecode.genericdao.dao.jpa.GenericDAOImpl;
 import com.googlecode.genericdao.search.jpa.JPASearchProcessor;
-import com.recipe.rest.dto.User;
-import com.recipe.rest.entity.UserDO;
-import org.apache.commons.lang3.StringUtils;
+import com.recipe.rest.entity.RecipeDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import java.util.List;
 
 @Repository
-public class UserDAOImp extends GenericDAOImpl<UserDO, Integer> implements UserDAO {
+public class RecipeDAOImpl extends GenericDAOImpl<RecipeDO, Integer> implements RecipeDAO {
 
     @Override
     @PersistenceContext(unitName="recipeRestPersistence")
@@ -43,11 +39,4 @@ public class UserDAOImp extends GenericDAOImpl<UserDO, Integer> implements UserD
         super.setSearchProcessor(searchProcessor);
     }
 
-    @Override
-    public List<UserDO> findByUsername(String username) {
-        if (StringUtils.isBlank(username)) return null;
-        Query query = em().createQuery("SELECT user FROM UserDO user where user.username=:username");
-        query.setParameter("username", username);
-        return query.getResultList();
-    }
 }

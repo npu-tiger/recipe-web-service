@@ -89,6 +89,16 @@ public class UserServiceImpl implements UserService {
 //        userDAO.delete(id);
 //    }
 
+    @Override
+    public UserDO findByUsername(String username) throws Exception {
+        List<UserDO> userList = userDAO.findByUsername(username);
+        if (CollectionUtils.isNotEmpty(userList)) {
+            return userList.get(0);
+        } else {
+            return null;
+        }
+    }
+
     private String getPluralizeJsonRootName(String rootName) {
         return rootName + "s";
     }

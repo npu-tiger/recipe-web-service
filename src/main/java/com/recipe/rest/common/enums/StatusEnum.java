@@ -8,20 +8,26 @@
  * written permission is obtained from Metabiota Incorporated.
  * ***********************************************************************
  * <p/>
- * Created by WLao on 10/29/15.
+ * Created by WLao on 11/12/15.
  */
-package com.recipe.rest.dao.user;
+package com.recipe.rest.common.enums;
 
-import com.googlecode.genericdao.dao.jpa.GenericDAO;
-import com.recipe.rest.dto.User;
-import com.recipe.rest.entity.UserDO;
-import org.springframework.stereotype.Repository;
+import lombok.Getter;
 
-import java.util.List;
+public enum StatusEnum {
 
-@Repository
-public interface UserDAO extends GenericDAO<UserDO, Integer> {
+    DELETED(0, "Deleted"),
+    ACTIVE(1, "Active"),
+    DEACTIVATED(2, "Deactivated");
 
-    public List<UserDO> findByUsername(String username);
+    @Getter
+    private int id;
 
+    @Getter
+    private final String name;
+
+    StatusEnum(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

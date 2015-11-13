@@ -8,7 +8,7 @@
  * written permission is obtained from Metabiota Incorporated.
  * ***********************************************************************
  * <p/>
- * Created by WLao on 10/29/15.
+ * Created by WLao on 11/11/15.
  */
 package com.recipe.rest.dto;
 
@@ -17,13 +17,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.recipe.rest.common.View;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @ToString
@@ -32,24 +28,48 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonRootName("user")
+@JsonRootName("recipe")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
+public class Recipe {
 
     @JsonView({View.GetResponse.class, View.PostResponse.class})
     private Integer id;
 
     @JsonView(View.GetResponse.class)
-    private String username;
-
-//    @JsonView(View.GetResponse.class)
-//    private String password;
+    private String title;
 
     @JsonView(View.GetResponse.class)
-    private String email;
+    private String description;
 
     @JsonView(View.GetResponse.class)
-    private String nickname;
+    private String difficulty;
+
+    @JsonView(View.GetResponse.class)
+    private Integer servingAmount;
+
+    @JsonView(View.GetResponse.class)
+    private Integer cookingTime;
+
+    @JsonView(View.GetResponse.class)
+    private String ingredient;
+
+    @JsonView(View.GetResponse.class)
+    private String direction;
+
+    @JsonView(View.GetResponse.class)
+    private String nutritionFact;
+
+    @JsonView(View.GetResponse.class)
+    private String imageUrl;
+
+    @JsonView(View.GetResponse.class)
+    private Integer userId;
+
+    @JsonView(View.GetResponse.class)
+    private String category;
+
+    @JsonView(View.GetResponse.class)
+    private Long totalVote;
 
     @JsonView(View.GetResponse.class)
     private String createdBy;

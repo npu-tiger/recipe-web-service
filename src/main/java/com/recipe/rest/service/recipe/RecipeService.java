@@ -8,20 +8,22 @@
  * written permission is obtained from Metabiota Incorporated.
  * ***********************************************************************
  * <p/>
- * Created by WLao on 10/29/15.
+ * Created by WLao on 11/11/15.
  */
-package com.recipe.rest.dao.user;
+package com.recipe.rest.service.recipe;
 
-import com.googlecode.genericdao.dao.jpa.GenericDAO;
-import com.recipe.rest.dto.User;
-import com.recipe.rest.entity.UserDO;
-import org.springframework.stereotype.Repository;
+import com.recipe.rest.dto.Recipe;
 
 import java.util.List;
+import java.util.Map;
 
-@Repository
-public interface UserDAO extends GenericDAO<UserDO, Integer> {
+public interface RecipeService {
 
-    public List<UserDO> findByUsername(String username);
+    public Recipe findById(Integer id) throws Exception;
 
+    public Map<String, List<Recipe>> findAll() throws Exception;
+
+    public Recipe add(Recipe recipeDTO) throws Exception;
+
+    public void update(Integer id, Recipe recipeDTO) throws Exception;
 }

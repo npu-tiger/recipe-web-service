@@ -8,7 +8,7 @@
  * written permission is obtained from Metabiota Incorporated.
  * ***********************************************************************
  * <p/>
- * Created by WLao on 10/29/15.
+ * Created by WLao on 11/11/15.
  */
 package com.recipe.rest.dto;
 
@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @ToString
@@ -32,24 +31,23 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonRootName("user")
+@JsonRootName("rank")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
-
+public class Rank {
     @JsonView({View.GetResponse.class, View.PostResponse.class})
     private Integer id;
 
-    @JsonView(View.GetResponse.class)
-    private String username;
+    @JsonView({View.GetResponse.class})
+    private Integer rank;
 
-//    @JsonView(View.GetResponse.class)
-//    private String password;
+    @JsonView({View.GetResponse.class})
+    private Integer recipeId;
 
-    @JsonView(View.GetResponse.class)
-    private String email;
+    @JsonView({View.GetResponse.class})
+    private Integer userId;
 
-    @JsonView(View.GetResponse.class)
-    private String nickname;
+    @JsonView({View.GetResponse.class})
+    private String status;
 
     @JsonView(View.GetResponse.class)
     private String createdBy;
