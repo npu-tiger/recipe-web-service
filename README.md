@@ -74,7 +74,7 @@ GET: http://localhost:8080/recipe/rest/api/ranks/1
 ## POST: create rank (voting)
 http://localhost:8080/recipe/rest/api/ranks
 <br>sample request payload for post: 
-<br>sample response: 
+<br>sample response: {"id":null,"rank":1,"recipeId":1,"userId":4,"status":null}
 
 # reference
 http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html
