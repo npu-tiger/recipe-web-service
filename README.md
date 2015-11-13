@@ -62,7 +62,7 @@ http://localhost:8080/recipe/rest/api/recipes
 <br>sample request payload for post: 
 <br>sample response: 
 
-# Recipe Resource
+# Rank Resource
 ## GET - get all
 http://localhost:8080/recipe/rest/api/ranks
 <br>sample response: {"ranks":[{"id":1,"rank":1,"recipeId":1,"userId":1,"status":"Active","createdBy":"admin","createdDate":1447368452000,"updatedBy":"admin","updatedDate":1447368452000},{"id":3,"rank":1,"recipeId":1,"userId":3,"status":"Active","createdBy":"admin","createdDate":1447368561000,"updatedBy":"admin","updatedDate":1447368561000}]}
