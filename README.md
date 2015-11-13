@@ -90,6 +90,5 @@ POST: http://localhost:8080/recipe/rest/api/auth/login
 sample request: http://localhost:8080/recipe/rest/api/auth/logout
 sample response: 200 OK
 
-## logout
 # reference
 http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html
