@@ -36,13 +36,45 @@ git clone git@github.com:npu-tiger/recipe-web-service.git
 # User Resource
 ## GET - get all
 http://localhost:8080/recipe/rest/api/users
+Sample response:
+{"users":[{"id":1,"username":"admin","password":"password123","email":"admin@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446175992000,"updatedBy":"adimn","updatedDate":1446176000000},{"id":3,"username":"user1","password":"password123","email":"user1@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446176035000,"updatedBy":"admin","updatedDate":1446176035000},{"id":4,"username":"dummyuser1","password":"password123","email":"dummyuser1@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446179244000,"updatedBy":"admin","updatedDate":1446179244000},{"id":5,"username":"dummyuser2","password":"password123","email":"dummyuser2@recipe.com","nickname":"too much fun","createdBy":"admin","createdDate":1447381140000,"updatedBy":"admin","updatedDate":1447381140000}]}
 
 ## GET - get by id
 GET: http://localhost:8080/recipe/rest/api/users/1
+{"user":{"id":1,"username":"admin","password":"password123","email":"admin@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446175992000,"updatedBy":"adimn","updatedDate":1446176000000}}
 
 ## POST: create user
 http://localhost:8080/recipe/rest/api/users
 sample request payload for post: {"id":null,"username":"dummyuser1","password":"password123","email":"dummyuser1@recipe.com","nickname":"fun"}
+sample response: {"user":{"id":5}}
+
+# Recipe Resource
+## GET - get all
+http://localhost:8080/recipe/rest/api/recipes
+sample response: {"recipes":[{"id":1,"title":"Classic guacamole","description":"Super-quick and easy, this guacamole recipe is delicious with fajitas, quesadillas, dolloped into a wrap or served as a snack with crunchy veggies","difficulty":"Super easy","servingAmount":8,"cookingTime":10,"ingredient":"half small red onion, 1-2 resh red chillies, 3 ripe avocados, 1 bunch of fresh coriander, 6 ripe cherry tomatoes, 2 limes, extra virgin olive oil, sea salt, freshly ground black pepper","direction":"Peel the onion and deseed 1 chilli, then roughly chop it all on a large board. Destone the avocados and scoop the flesh onto the board.<br>Start chopping it all together until fine and well combined. Pick over most of the coriander leaves, roughly chop and add the tomatoes, then continue chopping it all together.<br>Add the juice from 1 lime and 1 tablespoon of oil, then season to taste with salt, pepper and lime juice. Deseed, finely chop and scatter over the remaining chilli if you want more of a kick, pick over the reserved coriander leaves, then serve.","nutritionFact":"calories: 91; carb: 1.8g; fat: 8.8g; protein: 1g; fiber: 8g; sugar: 1g; salt: 0g","imageUrl":"https://jamieoliverprod.s3.amazonaws.com/recipe-database/oldImages/recipe_single/1554_2_1441789324.jpg","userId":1,"category":"Appetizer","totalVote":2,"createdBy":"admin","createdDate":1447368130000,"updatedBy":"admin","updatedDate":1447368130000}]}
+
+## GET - get by id
+GET: http://localhost:8080/recipe/rest/api/recipes/1
+sample response: {"recipe":{"id":1,"title":"Classic guacamole","description":"Super-quick and easy, this guacamole recipe is delicious with fajitas, quesadillas, dolloped into a wrap or served as a snack with crunchy veggies","difficulty":"Super easy","servingAmount":8,"cookingTime":10,"ingredient":"half small red onion, 1-2 resh red chillies, 3 ripe avocados, 1 bunch of fresh coriander, 6 ripe cherry tomatoes, 2 limes, extra virgin olive oil, sea salt, freshly ground black pepper","direction":"Peel the onion and deseed 1 chilli, then roughly chop it all on a large board. Destone the avocados and scoop the flesh onto the board.<br>Start chopping it all together until fine and well combined. Pick over most of the coriander leaves, roughly chop and add the tomatoes, then continue chopping it all together.<br>Add the juice from 1 lime and 1 tablespoon of oil, then season to taste with salt, pepper and lime juice. Deseed, finely chop and scatter over the remaining chilli if you want more of a kick, pick over the reserved coriander leaves, then serve.","nutritionFact":"calories: 91; carb: 1.8g; fat: 8.8g; protein: 1g; fiber: 8g; sugar: 1g; salt: 0g","imageUrl":"https://jamieoliverprod.s3.amazonaws.com/recipe-database/oldImages/recipe_single/1554_2_1441789324.jpg","userId":1,"category":"Appetizer","totalVote":2,"createdBy":"admin","createdDate":1447368130000,"updatedBy":"admin","updatedDate":1447368130000}}
+
+## POST: create recipe
+http://localhost:8080/recipe/rest/api/recipes
+sample request payload for post: 
+sample response: 
+
+# Recipe Resource
+## GET - get all
+http://localhost:8080/recipe/rest/api/ranks
+sample response: {"ranks":[{"id":1,"rank":1,"recipeId":1,"userId":1,"status":"Active","createdBy":"admin","createdDate":1447368452000,"updatedBy":"admin","updatedDate":1447368452000},{"id":3,"rank":1,"recipeId":1,"userId":3,"status":"Active","createdBy":"admin","createdDate":1447368561000,"updatedBy":"admin","updatedDate":1447368561000}]}
+
+## GET - get by id
+GET: http://localhost:8080/recipe/rest/api/ranks/1
+sample response: {"rank":{"id":1,"rank":1,"recipeId":1,"userId":1,"status":"Active","createdBy":"admin","createdDate":1447368452000,"updatedBy":"admin","updatedDate":1447368452000}}
+
+## POST: create rank (voting)
+http://localhost:8080/recipe/rest/api/ranks
+sample request payload for post: 
+sample response: 
 
 # reference
 http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html
