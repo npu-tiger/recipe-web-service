@@ -81,12 +81,15 @@ public class UserDO {
 
     @PrePersist
     protected void onCreate() {
+        this.createdBy = "admin";
+        this.updatedBy = "admin";
         this.createdDate = new Date();
         this.updatedDate = new Date();
     }
 
     @PreUpdate
     protected void onUpdate(){
+        this.updatedBy = "admin";
         this.updatedDate = new Date();
     }
 }
