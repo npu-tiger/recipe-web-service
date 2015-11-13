@@ -37,11 +37,11 @@ git clone git@github.com:npu-tiger/recipe-web-service.git
 ## GET - get all
 http://localhost:8080/recipe/rest/api/users
 <br>Sample response:
-{"users":[{"id":1,"username":"admin","password":"password123","email":"admin@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446175992000,"updatedBy":"adimn","updatedDate":1446176000000},{"id":3,"username":"user1","password":"password123","email":"user1@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446176035000,"updatedBy":"admin","updatedDate":1446176035000},{"id":4,"username":"dummyuser1","password":"password123","email":"dummyuser1@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446179244000,"updatedBy":"admin","updatedDate":1446179244000},{"id":5,"username":"dummyuser2","password":"password123","email":"dummyuser2@recipe.com","nickname":"too much fun","createdBy":"admin","createdDate":1447381140000,"updatedBy":"admin","updatedDate":1447381140000}]}
+{"users":[{"id":1,"username":"admin","email":"admin@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446175992000,"updatedBy":"adimn","updatedDate":1446176000000},{"id":3,"username":"user1","email":"user1@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446176035000,"updatedBy":"admin","updatedDate":1446176035000},{"id":4,"username":"dummyuser1","email":"dummyuser1@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446179244000,"updatedBy":"admin","updatedDate":1446179244000},{"id":5,"username":"dummyuser2","email":"dummyuser2@recipe.com","nickname":"too much fun","createdBy":"admin","createdDate":1447381140000,"updatedBy":"admin","updatedDate":1447381140000}]}
 
 ## GET - get by id
 GET: http://localhost:8080/recipe/rest/api/users/1
-<br>sample response: {"user":{"id":1,"username":"admin","password":"password123","email":"admin@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446175992000,"updatedBy":"adimn","updatedDate":1446176000000}}
+<br>sample response: {"user":{"id":1,"username":"admin","email":"admin@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446175992000,"updatedBy":"adimn","updatedDate":1446176000000}}
 
 ## POST: create user
 http://localhost:8080/recipe/rest/api/users
@@ -76,5 +76,20 @@ http://localhost:8080/recipe/rest/api/ranks
 <br>sample request payload for post: {"id":null,"rank":1,"recipeId":1,"userId":4,"status":null}
 <br>sample response: {"rank":{"id":5}}
 
+# Auth Resource
+## login
+### Sample Request:
+POST: http://localhost:8080/recipe/rest/api/auth/login
+<br>Content-Type: application/x-www-form-urlencoded 
+<br>username=admin
+<br>password=password123
+### Sample Response:
+{"user":{"id":1,"username":"admin","email":"admin@recipe.com","nickname":"fun","createdBy":"admin","createdDate":1446175992000,"updatedBy":"adimn","updatedDate":1446176000000}}
+
+## logout
+sample request: http://localhost:8080/recipe/rest/api/auth/logout
+sample response: 200 OK
+
+## logout
 # reference
 http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html
