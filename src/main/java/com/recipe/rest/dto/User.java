@@ -42,8 +42,8 @@ public class User {
     @JsonView(View.GetResponse.class)
     private String username;
 
-//    @JsonView(View.GetResponse.class)
-//    private String password;
+    @JsonView(View.PostResponse.class)
+    private String password;
 
     @JsonView(View.GetResponse.class)
     private String email;
